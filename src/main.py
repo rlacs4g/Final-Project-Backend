@@ -314,6 +314,12 @@ def getDay(day_id):
     day = Day.query.filter_by(id=day_id).first()
     return jsonify({"day": day.serialize()}), 200
 
+@app.route('/diary/user/<int:user_id>', methods=['GET'])
+def getUserDiary(user_id):
+    user = User.query.filter_by(id=user_id).first().serialize()
+    diary = user['diary']
+    return jsonify({"diary": diary}), 200
+
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
