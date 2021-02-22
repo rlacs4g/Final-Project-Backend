@@ -23,7 +23,8 @@ class User(db.Model):
             "id": self.id,
             "email": self.email,
             "first_name": self.firstname,
-            "last_name": self.lastname
+            "last_name": self.lastname,
+            "diary": [d.serialize() for d in self.diary]
             # do not serialize the password, its a security breach
         }
 
