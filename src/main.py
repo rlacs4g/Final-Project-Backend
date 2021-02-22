@@ -154,11 +154,11 @@ def createDiaryEntry():
 
     try:
         for item in foods:
-            name = item.get("name", None)
-            calories = item.get("calories", None)
-            serving_size = item.get("serving_size", None)
+            name = item.get("food_name", None)
+            calories = item.get("nf_calories", None)
+            serving_size = item.get("serving_qty", None)
             serving_unit = item.get("serving_unit", None)
-            quantity = item.get("quantity", None)
+            quantity = item.get("qty", None)
             time_of_day = item.get("time_of_day", None)
             if not name:
                 return jsonify({"msg": "name is required"}), 400
